@@ -1,6 +1,6 @@
 import {REGISTER_SUCCESS,REGISTER_FAIL} from '../actions/types';
 
-const intialState = {
+const initialState = {
     token:localStorage.getItem('token'),
     isAuthenticated:null,
     loading: true,
@@ -21,7 +21,7 @@ export  default function (state = initialState, action){
                 loading: false
             }
        case REGISTER_FAIL:
-                localStorage.setItem('token',payload.token);
+                localStorage.removeItem('token',payload.token);
                 return{
                     ...state,
                     token:null,
